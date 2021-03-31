@@ -6,8 +6,7 @@
 // Require dependencies
 var xmldom    = require('xmldom'),
     xpath     = require('xpath'),
-    _         = require('lodash'),
-    profile   = {};
+    _         = require('lodash');
 
 // Saml2js
 // -------
@@ -26,6 +25,7 @@ function Saml2js (response) {
 // Private function.
 // Parses raw SAML assertion to JS object.
 Saml2js.prototype.parse = function(saml) {
+  let profile = {};
   var xml       = new Buffer(saml, 'base64').toString('ascii'),
       doc       = new xmldom.DOMParser().parseFromString(xml);
 
